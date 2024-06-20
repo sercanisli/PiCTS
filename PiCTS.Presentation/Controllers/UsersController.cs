@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PiCTS.Entities.DataTransferObjects;
 using PiCTS.Entities.DataTransferObjects.AuthenticationDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.UserDTOs;
@@ -24,6 +25,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
+        [Authorize(Roles = "Kullanicilari Gorme")]
         [HttpGet("GetAllUserAsync")]
         public async Task<IActionResult> GetAllUserAsync()
         {
@@ -31,6 +33,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(users);
         }
 
+        [Authorize(Roles = "Kullanicilari Gorme")]
         [HttpPost("GetOneUserByUserNameAsync")]
         public async Task<IActionResult> GetOneUserByUserNameAsync([FromBody]UserNameDTO userNameDTO)
         {
@@ -45,6 +48,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(user);
         }
 
+        [Authorize(Roles = "Kullanicilari Gorme")]
         [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetOneUserByIdAsync([FromRoute(Name = "id")]Guid id)
         {
@@ -52,6 +56,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(user);
         }
 
+        [Authorize(Roles = "Kullanici Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreateOneUser([FromBody]UserForRegistrationDTO userForRegistrationDTO)
         {
@@ -67,6 +72,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201);
         }
 
+        [Authorize(Roles = "Kullanici Silme")]
         [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> DeleteUser([FromRoute(Name = "id")]Guid id)
         {
@@ -74,6 +80,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Kullanici Güncelleme")]
         [HttpPut("{id:Guid}")]
         public async Task<IActionResult> UpdateOneUser([FromRoute(Name = "id")]Guid id, [FromBody] UserForUpdateDTO userForUpdateDTO)
         {

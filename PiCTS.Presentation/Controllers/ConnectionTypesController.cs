@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PiCTS.Entities.DataTransferObjects.ConnectionTypeDTOs.RequestDTOs;
 using PiCTS.Entities.Models;
 using PiCTS.Services.Contract;
@@ -21,7 +22,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
-        //[Authorize(Roles = "ReadConnectionType")]
+        [Authorize(Roles = "Bağlanti Tipi Gorme")]
         [HttpGet("GetAllConnectionTypesAsync")]
         public async Task<IActionResult> GetAllConnectionTypesAsync()
         {
@@ -36,7 +37,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
-        //[Authorize(Roles = "ReadConnectionType")]
+        [Authorize(Roles = "Bağlanti Tipi Gorme")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneConnectionTypeAsync([FromRoute(Name = "id")]int id)
         {
@@ -44,7 +45,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entity);
         }
 
-        //[Authorize(Roles = "CreateConnectionType")]
+        [Authorize(Roles = "Bağlanti Tipi Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreateConnectionTypeAsync([FromBody]ConnectionTypeRegistrationDTO connectionTypeRegistrationDTO)
         {
@@ -52,7 +53,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201, connectionTypeRegistrationDTO);
         }
 
-        //[Authorize(Roles = "EditConnectionType")]
+        [Authorize(Roles = "Bağlanti Tipi Güncelleme")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateConnectionTypeAsync([FromRoute(Name = "id")]int id, [FromBody]ConnectionTypeUpdateDTO connectionTypeUpdateDTO)
         {
@@ -60,7 +61,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "DeleteConnectionType")]
+        [Authorize(Roles = "Bağlanti Tipi Silme")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteConnectionTypeAsync([FromRoute(Name = "id")]int id)
         {

@@ -22,7 +22,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
-        //[Authorize(Roles = "ReadPerson")]
+        [Authorize(Roles = "Yetkili Kişileri Gorme")]
         [HttpGet("GetAllPersonsAsync")]
         public async Task<IActionResult> GetAllPersonsAsync()
         {
@@ -30,7 +30,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
-        //[Authorize(Roles = "ReadPerson")]
+        [Authorize(Roles = "Yetkili Kişileri Gorme")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOnePersonAsync([FromRoute(Name = "id")]int id)
         {
@@ -38,7 +38,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entity);
         }
 
-        //[Authorize(Roles = "CreatePerson")]
+        [Authorize(Roles = "Yetkili Kişi Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreatePersonAsync([FromBody]PersonRegistrationDTO personRegistrationDTO)
         {
@@ -46,7 +46,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201, personRegistrationDTO);
         }
 
-        //[Authorize(Roles = "EditPerson")]
+        [Authorize(Roles = "Yetkili Kişi Güncelleme")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdatePersonAsync([FromRoute(Name = "id")]int id, [FromBody]PersonUpdateDTO personUpdateDTO)
         {
@@ -54,7 +54,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "DeletePerson")]
+        [Authorize(Roles = "Yetkili Kişi Silme")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePersonAsync([FromRoute(Name = "id")]int id)
         {

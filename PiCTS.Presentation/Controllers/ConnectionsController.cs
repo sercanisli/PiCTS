@@ -22,7 +22,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
-        //[Authorize(Roles = "ReadConnection")]
+        [Authorize(Roles = "Bağlantilari Gorme")]
         [HttpGet("GetAllConnectionsAsync")]
         public async Task<IActionResult> GetAllConnectionsAsync()
         {
@@ -38,7 +38,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
-        //[Authorize(Roles = "ReadConnection")]
+        [Authorize(Roles = "Bağlantilari Gorme")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneConnection([FromRoute(Name = "id")]int id)
         {
@@ -46,7 +46,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entity);
         }
 
-        //[Authorize(Roles = "CreateConnection")]
+        [Authorize(Roles = "Bağlanti Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreateConnectionAsync([FromBody]ConnectionRegistrationDTO connectionRegistrationDTO)
         {
@@ -54,7 +54,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201, connectionRegistrationDTO);
         }
 
-        //[Authorize(Roles = "EditConnection")]
+        [Authorize(Roles = "Bağlanti Güncelleme")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateConnectionAsync([FromRoute(Name = "id")]int id, [FromBody]ConnectionUpdateDTO connectionUpdateDTO)
         {
@@ -62,7 +62,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "DeleteConnection")]
+        [Authorize(Roles = "Bağlanti Silme")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteConnectionAsync([FromRoute(Name = "id")]int id)
         {

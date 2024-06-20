@@ -22,7 +22,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
-        //[Authorize(Roles = "ReadCompany")]
+        [Authorize(Roles = "Firmalari Gorme")]
         [HttpGet("GetAllCompaniesAsync")]
         public async Task<IActionResult> GetAllCompaniesAsync()
         {
@@ -37,7 +37,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
-        //[Authorize(Roles = "ReadCompany")]
+        [Authorize(Roles = "Firmalari Gorme")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneCompanyAsync([FromRoute(Name = "id")] int id)
         {
@@ -45,7 +45,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entity);
         }
 
-        //[Authorize(Roles = "CreateCompany")]
+        [Authorize(Roles = "Firma Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreateCompanyAsync([FromBody] CompanyRegistrationDTO companyRegistrationDTO)
         {
@@ -53,7 +53,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201, companyRegistrationDTO);
         }
 
-        //[Authorize(Roles = "EditCompany")]
+        [Authorize(Roles = "Firma Güncelleme")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateCompanyAsync([FromRoute(Name = "id")] int id, [FromBody] CompanyUpdateDTO companyUpdateDTO)
         {
@@ -61,7 +61,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "DeleteCompany")]
+        [Authorize(Roles = "Firma Silme")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCompanyAsync([FromRoute(Name = "id")] int id)
         {

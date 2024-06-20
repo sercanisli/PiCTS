@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PiCTS.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
+        [Authorize(Roles = "Dashboard Gorme")]
         [HttpGet]
         public async Task<IActionResult> GetDashboardItemsCount()
         {

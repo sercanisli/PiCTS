@@ -17,6 +17,14 @@ namespace PiCTS.Repositories.EntityFrameworkCore
         public DbSet<Person> Persons { get; set; }
         public DbSet<Connection> Connections { get; set; }
         public DbSet<ConnectionType> ConnectionTypes { get; set; }
+        public DbSet<BranchChildRoot> BranchChildRoots { get; set; }
+        public DbSet<BranchMainRoot> BranchMainRoots { get; set; }
+        public DbSet<MainRoot> MainRoots { get; set; }
+        public DbSet<ChildRoot> ChildRoots { get; set; }
+        public DbSet<SearchCountofCompanies> SearchCountofCompanies { get; set; }
+        public DbSet<SearchCounts> SearchCounts { get; set; }
+        public DbSet<UserBranches> UserBranches { get; set; }
+
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {

@@ -22,7 +22,7 @@ namespace PiCTS.Presentation.Controllers
             _manager = manager;
         }
 
-        //[Authorize(Roles = "ReadBranch")]
+        [Authorize(Roles = "Şubeleri Gorme")]
         [HttpGet("GetAllBranchesAsync")]
         public async Task<IActionResult> GetAllBranchesAsync()
         {
@@ -38,7 +38,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
-        //[Authorize(Roles = "ReadBranch")]
+        [Authorize(Roles = "Şubeleri Gorme")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneBranchAsync([FromRoute(Name ="id")]int id)
         {
@@ -46,7 +46,7 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entity);
         }
 
-        //[Authorize(Roles = "CreateBranch")]
+        [Authorize(Roles = "Şube Oluşturma")]
         [HttpPost]
         public async Task<IActionResult> CreateBranchAsync([FromBody]BranchForRegistrationDTO branchForRegistrationDTO)
         {
@@ -54,7 +54,7 @@ namespace PiCTS.Presentation.Controllers
             return StatusCode(201, branchForRegistrationDTO);
         }
 
-        //[Authorize(Roles = "EditBranch")]
+        [Authorize(Roles = "Şube Güncelleme")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateBranchAsync([FromRoute(Name ="id")]int id, [FromBody] BranchUpdateDTO branchUpdateDTO)
         {
@@ -62,7 +62,7 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "DeleteBranch")]
+        [Authorize(Roles = "Şube Silme")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteBranchAsync([FromRoute(Name ="id")]int id)
         {
