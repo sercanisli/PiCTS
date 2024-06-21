@@ -76,7 +76,6 @@ namespace PiCTS.Services.Concrete
                         scoc.Count = scoc.Count + searchCountofCompaniesUpdateDTO.Count;
                         match = true;
                         _repositoryManager.SearchCountofCompaniesRepository.UpdateOneSearchCountofCompany(scoc);
-                        await _repositoryManager.SaveChanges();
                         break;
                     }
                 }
@@ -91,8 +90,8 @@ namespace PiCTS.Services.Concrete
                 };
 
                 _repositoryManager.SearchCountofCompaniesRepository.CreateOneSearchCountofCompany(searchCountofCompany);
-                await _repositoryManager.SaveChanges();
             }
+            await _repositoryManager.SaveChanges();
         }
     }
 }

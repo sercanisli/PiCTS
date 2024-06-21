@@ -27,11 +27,15 @@ namespace PiCTS.WebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PiCTS.WebAPI", Version = "v1" });
-            });
-            services.AddControllers()
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PiCTS.WebAPI", Version = "v1" });
+            //});
+
+            services.AddControllers(configuration => {
+                configuration.RespectBrowserAcceptHeader = true;
+                configuration.ReturnHttpNotAcceptable = true;
+            })
                 .AddApplicationPart(typeof(PiCTS.Presentation.AssemblyReference).Assembly)
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -60,14 +64,16 @@ namespace PiCTS.WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PiCTS.WebAPI v1"));
             }
 
+
             if (env.IsProduction())
             {
                 app.UseHsts();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.ConfigureExceptionHandler(logger);
 
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -81,6 +87,7 @@ namespace PiCTS.WebAPI
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

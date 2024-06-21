@@ -8,7 +8,6 @@ namespace PiCTS.Entities.DataTransferObjects.SearchCountofCompaniesDTOs.RequestD
 {
     public record SearchCountofCompaniesUpdateDTO
     {
-        public int Id { get; init; }
         public int CompanyId { get; init; }
         public int Count { get; init; }
     }
