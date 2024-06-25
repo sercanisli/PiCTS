@@ -79,7 +79,7 @@ namespace PiCTS.Services.Concrete
 
             var userRoles = await _userManager.GetRolesAsync(user);
 
-            if (!userRoles.Contains("Yetkili Kişileri Gorme"))
+            if (!userRoles.Contains("Yetkili Kişi Bilgileri Gorme"))
             {
                 foreach (var entity in connections)
                 {

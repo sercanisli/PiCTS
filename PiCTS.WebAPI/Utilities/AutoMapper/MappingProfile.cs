@@ -71,6 +71,7 @@ namespace PiCTS.WebAPI.Utilities.AutoMapper
             CreateMap<User, UserResponseDTO>().ReverseMap();
             CreateMap<User, UserNameDTO>().ReverseMap();
             CreateMap<User, UserSeettingsResponseDTO>().ReverseMap();
+            CreateMap<User, UserStatusUpdateDTO>().ReverseMap();
 
             CreateMap<RoleRegistrationDTO, Role>().ReverseMap();
             CreateMap<Role, RoleUpdateDTO>().ReverseMap();

@@ -27,10 +27,10 @@ namespace PiCTS.WebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PiCTS.WebAPI", Version = "v1" });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PiCTS.WebAPI", Version = "v1" });
+            });
 
             services.AddControllers(configuration => {
                 configuration.RespectBrowserAcceptHeader = true;

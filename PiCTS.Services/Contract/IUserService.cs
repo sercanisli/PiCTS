@@ -20,6 +20,7 @@ namespace PiCTS.Services.Contract
         Task<User> GetOneUserByIdAsync(Guid id);
         Task<IdentityResult> CreateOneUserAsycn(UserForRegistrationDTO userForRegistrationDTO); 
         Task UpdateOneUserAsync(Guid id, UserForUpdateDTO userForUpdateDTO);
+        Task UpdateOneUserStatusAsync(UserStatusUpdateDTO userStatusUpdateDTO);
         Task DeleteOneUserAsync(Guid id);
     } 
 }

@@ -50,23 +50,22 @@ namespace PiCTS.Services.Concrete
         public async Task DeleteOneUserAsync(Guid id)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == Convert.ToString(id));
-            if(user == null)
+            if (user == null)
             {
                 throw new UserNotFoundException(id);
             }
-            user.CreatedDate = user.CreatedDate;
-            user.UpdatedDate = user.UpdatedDate;
-            user.DeletedDate = DateTime.Now;
-            user.IsDeleted = true;
-            await _userManager.UpdateAsync(user);
+
+            await _userManager.DeleteAsync(user);
             await _manager.SaveChanges();
         }
 
         public async Task<IEnumerable<UserResponseDTO>> GetAllUsersAsync()
         {
-            var users = await _userManager.Users.
-                Where(u=>u.IsDeleted != true)
-                .ToListAsync();
+            var users = await _userManager.Users.ToListAsync();
+            foreach (var user in users)
+            {
+                user.IsDeleted = !user.IsDeleted;
+            }
             var returnedUsers = _mapper.Map<IEnumerable<UserResponseDTO>>(users);
             return returnedUsers;
         }
@@ -132,6 +131,24 @@ namespace PiCTS.Services.Concrete
             await _userManager.UpdateAsync(entity);
             await _manager.SaveChanges();
 
+        }
+
+        public async Task UpdateOneUserStatusAsync(UserStatusUpdateDTO userStatusUpdateDTO)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == Convert.ToString(userStatusUpdateDTO.Id));
+            if(user == null)
+            {
+                throw new UserNotFoundException(userStatusUpdateDTO.Id);
+            }
+            if(userStatusUpdateDTO == null)
+            {
+                throw new ArgumentNullException(nameof(userStatusUpdateDTO));
+            }
+
+            user.IsDeleted = !userStatusUpdateDTO.IsDeleted;
+
+            await _userManager.UpdateAsync(user);
+            await _manager.SaveChanges();
         }
     }
 }

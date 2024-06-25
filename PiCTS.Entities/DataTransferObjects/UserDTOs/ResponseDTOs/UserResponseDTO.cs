@@ -13,6 +13,7 @@ namespace PiCTS.Entities.DataTransferObjects.UserDTOs.ResponseDTOs
         public string LastName { get; init; }
         public string UserName { get; init; }
         public string Password { get; init; }
+        public bool IsDeleted { get; set; }
 
         public ICollection<string> Roles { get; init; }
     }

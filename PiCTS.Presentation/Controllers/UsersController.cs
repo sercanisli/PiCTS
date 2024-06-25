@@ -95,5 +95,12 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Kullanici Güncelleme")]
+        [HttpPut("UpdateOneUserStatusAsync")]
+        public async Task<IActionResult> UpdateOneUserStatusAsync([FromBody] UserStatusUpdateDTO userStatusUpdateDTO)
+        {
+            await _manager.UserService.UpdateOneUserStatusAsync(userStatusUpdateDTO);
+            return NoContent();
+        }
     }
 }

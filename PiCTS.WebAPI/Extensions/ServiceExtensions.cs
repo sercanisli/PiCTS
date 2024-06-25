@@ -45,8 +45,7 @@ namespace PiCTS.WebAPI.Extensions
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder =>
-                     builder
-                       .WithOrigins("http://127.0.0.1:9090", "http://localhost:9090", "http://localhost:5173", "http://192.168.2.200:9090")
+                     builder.WithOrigins("http://localhost:5173", "http://localhost:9090", "http://192.168.2.200:9090")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials()

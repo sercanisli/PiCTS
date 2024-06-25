@@ -82,6 +82,7 @@ namespace PiCTS.Services.Concrete
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
                 UserName = _user.UserName,
+                IsActive = !_user.IsDeleted,
                 RefreshTokenExpiryTime = _user.RefreshTokenExpiryTime,
                 UserPermissions = roles
             };
