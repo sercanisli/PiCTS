@@ -72,7 +72,7 @@ namespace PiCTS.Services.Concrete
 
             if(populateExp)
             {
-                _user.RefreshTokenExpiryTime = DateTime.Now.AddMinutes(60);
+                _user.RefreshTokenExpiryTime = DateTime.Now.AddHours(12);
             }
             await _userManager.UpdateAsync(_user);
 
@@ -152,7 +152,7 @@ namespace PiCTS.Services.Concrete
                     issuer: jwtSettings["validIssuer"],
                     audience: jwtSettings["validAudience"],
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["expires"])),
+                    expires: DateTime.Now.AddHours(Convert.ToDouble(jwtSettings["expires"])),
                     signingCredentials: signinCredentials
                 );
 
