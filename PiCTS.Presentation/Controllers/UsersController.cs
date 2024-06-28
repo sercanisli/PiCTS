@@ -5,6 +5,7 @@ using PiCTS.Entities.DataTransferObjects.AuthenticationDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.UserDTOs;
 using PiCTS.Entities.DataTransferObjects.UserDTOs.RequestDTOs;
 using PiCTS.Entities.Models;
+using PiCTS.Presentation.ActionFilters;
 using PiCTS.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 namespace PiCTS.Presentation.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/users")]
     public class UsersController : ControllerBase
     {

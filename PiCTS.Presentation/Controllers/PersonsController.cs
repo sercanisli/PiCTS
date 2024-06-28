@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PiCTS.Entities.DataTransferObjects.PersonDTOs.RequestDTOs;
 using PiCTS.Entities.Models;
+using PiCTS.Presentation.ActionFilters;
 using PiCTS.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace PiCTS.Presentation.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/persons")]
     public class PersonsController : ControllerBase
     {

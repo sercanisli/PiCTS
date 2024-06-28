@@ -46,6 +46,7 @@ namespace PiCTS.WebAPI
             services.ConfigureRepositoryManager();
             services.ConfigureServiceManager();
             services.ConfigureLoggerService();
+            services.ConfigureActionFilters();
             services.AddAutoMapper(typeof(Startup));
             services.ConfigureCors();
             services.ConfigureIdentity();

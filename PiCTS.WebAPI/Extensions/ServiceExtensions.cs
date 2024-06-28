@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using PiCTS.Entities.Models;
+using PiCTS.Presentation.ActionFilters;
 using PiCTS.Repositories.Contract;
 using PiCTS.Repositories.EntityFrameworkCore;
 using PiCTS.Services.Concrete;
@@ -40,15 +41,20 @@ namespace PiCTS.WebAPI.Extensions
             services.AddSingleton<ILoggerService, LoggerManager>();
         }
 
+        public static void ConfigureActionFilters(this IServiceCollection services)
+        {
+            services.AddSingleton<LogFilterAttribute>();
+        }
+
         public static void ConfigureCors(this IServiceCollection services)
         {
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder =>
-                     builder.WithOrigins("http://localhost:5173", "http://localhost:9090", "http://192.168.2.200:9090")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials()
+                     builder.AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .SetIsOriginAllowed(origin => true)
+                            .AllowCredentials()
                 );
             });
         }
