@@ -23,6 +23,9 @@ namespace PiCTS.Repositories.EntityFrameworkCore
         private readonly Lazy<IBranchChildRootRepository> _branchChildRootRepository;
         private readonly Lazy<ISearchCountsRepository> _searchCountsRepository;
         private readonly Lazy<ISearchCountofCompaniesRepository> _searchCountofCompaniesRepository;
+        private readonly Lazy<IProjectRepository> _projectRepository;
+        private readonly Lazy<ITasksRepository> _taskRepository;
+        private readonly Lazy<ITaskUsersRepository> _taskUserRepository;
 
         public RepositoryManager(RepositoryContext context)
         {
@@ -40,6 +43,9 @@ namespace PiCTS.Repositories.EntityFrameworkCore
             _branchChildRootRepository = new Lazy<IBranchChildRootRepository>(() => new BranchChildRootRepository(_context));
             _searchCountsRepository = new Lazy<ISearchCountsRepository>(() => new SearchCountsRepository(_context));
             _searchCountofCompaniesRepository = new Lazy<ISearchCountofCompaniesRepository>(() => new SearchCountofCompaniesRepository(_context));
+            _projectRepository = new Lazy<IProjectRepository>(() => new ProjectRepository(_context));
+            _taskRepository = new Lazy<ITasksRepository>(() => new TasksRepository(_context));
+            _taskUserRepository = new Lazy<ITaskUsersRepository>(() => new TaskUsersRepository(_context));
         }
 
 
@@ -55,6 +61,9 @@ namespace PiCTS.Repositories.EntityFrameworkCore
         public IBranchChildRootRepository BranchChildRootRepository => _branchChildRootRepository.Value;
         public ISearchCountsRepository SearchCountsRepository => _searchCountsRepository.Value;
         public ISearchCountofCompaniesRepository SearchCountofCompaniesRepository => _searchCountofCompaniesRepository.Value;
+        public IProjectRepository ProjectRepository => _projectRepository.Value;
+        public ITasksRepository TasksRepository => _taskRepository.Value;
+        public ITaskUsersRepository TaskUsersRepository => _taskUserRepository.Value;
 
         public async Task SaveChanges() => await _context.SaveChangesAsync();
     }

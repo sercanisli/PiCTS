@@ -30,6 +30,9 @@ namespace PiCTS.Services.Concrete
         private readonly Lazy<IDashboardService> _dashboardService;
         private readonly Lazy<ISearchCountsService> _searchCountsService;
         private readonly Lazy<ISearchCountofCompaniesService> _searchCountofCompaniesService;
+        private readonly Lazy<IProjectService> _projectService;
+        private readonly Lazy<ITaskService> _taskService;
+        private readonly Lazy<ITaskUsersService> _taskUsersService;
 
 
         private readonly Lazy<IAuthenticationService> _authenticationService;
@@ -53,6 +56,9 @@ namespace PiCTS.Services.Concrete
             _dashboardService = new Lazy<IDashboardService>(() => new DashboardManager(repositoryManager, userManager));
             _searchCountsService = new Lazy<ISearchCountsService>(() => new SearchCountsManager(repositoryManager, mapper));
             _searchCountofCompaniesService = new Lazy<ISearchCountofCompaniesService>(() => new SearchCountofCompaniesManager(repositoryManager, mapper));
+            _projectService = new Lazy<IProjectService>(() => new ProjectManager(repositoryManager, mapper));
+            _taskService = new Lazy<ITaskService>(() => new TaskManager(repositoryManager, mapper));
+            _taskUsersService = new Lazy<ITaskUsersService>(() => new TaskUsersManager(repositoryManager, mapper));
         }
 
         public ICompanyService CompanyService => _companyService.Value;
@@ -71,6 +77,9 @@ namespace PiCTS.Services.Concrete
         public IDashboardService DashboardService => _dashboardService.Value;
         public ISearchCountsService SearchCountsService => _searchCountsService.Value;
         public ISearchCountofCompaniesService SearchCountofCompaniesService => _searchCountofCompaniesService.Value;
+        public IProjectService ProjectService => _projectService.Value;
+        public ITaskService TaskService => _taskService.Value;
+        public ITaskUsersService TaskUsersService => _taskUsersService.Value;
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;
     }

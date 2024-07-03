@@ -12,6 +12,7 @@ using PiCTS.WebAPI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PiCTS.WebAPI
@@ -32,14 +33,14 @@ namespace PiCTS.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PiCTS.WebAPI", Version = "v1" });
             });
 
-            services.AddControllers(configuration => {
+            services.AddControllers(configuration =>
+            {
                 configuration.RespectBrowserAcceptHeader = true;
                 configuration.ReturnHttpNotAcceptable = true;
             })
                 .AddApplicationPart(typeof(PiCTS.Presentation.AssemblyReference).Assembly)
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-
             );
 
             services.ConfigureSqlContext(Configuration);

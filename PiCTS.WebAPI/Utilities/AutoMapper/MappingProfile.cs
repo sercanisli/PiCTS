@@ -18,12 +18,17 @@ using PiCTS.Entities.DataTransferObjects.MainRootDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.MainRootDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.PersonDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.PersonDTOs.ResponseDTOs;
+using PiCTS.Entities.DataTransferObjects.ProjectDTOs.RequestDTOs;
+using PiCTS.Entities.DataTransferObjects.ProjectDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.RoleDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.RoleDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.SearchCountofCompaniesDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.SearchCountofCompaniesDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.SearchCountsDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.SearchCountsDTOs.ResponseDTOs;
+using PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs;
+using PiCTS.Entities.DataTransferObjects.TasksDTOs.ResponseDTOs;
+using PiCTS.Entities.DataTransferObjects.TaskUsersDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.UserBranchesDTOs.ResponseDTOs;
 using PiCTS.Entities.DataTransferObjects.UserDTOs.RequestDTOs;
 using PiCTS.Entities.DataTransferObjects.UserDTOs.ResponseDTOs;
@@ -102,6 +107,16 @@ namespace PiCTS.WebAPI.Utilities.AutoMapper
             CreateMap<SearchCountofCompanies, SearchCountofCompaniesRegistrationDTO>().ReverseMap();
             CreateMap<SearchCountofCompanies, SearchCountofCompaniesUpdateDTO>().ReverseMap();
             CreateMap<SearchCountofCompanies, SearchCountofCompaniesResponseDTO>().ReverseMap();
+
+            CreateMap<Project, ProjectRegistrationDTO>().ReverseMap();
+            CreateMap<Project, ProjectUpdateDTO>().ReverseMap();
+            CreateMap<Project, ProjectResponseDTO>().ReverseMap();
+
+            CreateMap<Tasks, TasksRegistrationDTO>().ReverseMap();
+            CreateMap<Tasks, TasksUpdateDTO>().ReverseMap();
+            CreateMap<Tasks, TasksResponseDTO>().ReverseMap();
+
+            CreateMap<TaskUsers, TaskUsersResponseDTO>().ReverseMap();
         }
     }
 }

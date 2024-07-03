@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataTransferObjects\TaskUsersDTOs\RequestDTOs\" />
     <Folder Include="DataTransferObjects\UserBranchesDTOs\RequestDTOs\" />
     <Folder Include="DataTransferObjects\UserRolesDTOs\RequestDTOs\" />
     <Folder Include="DataTransferObjects\UserRolesDTOs\ResponseDTOs\" />

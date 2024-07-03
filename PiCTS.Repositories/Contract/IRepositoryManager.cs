@@ -20,6 +20,9 @@ namespace PiCTS.Repositories.Contract
         IBranchChildRootRepository BranchChildRootRepository { get; }
         ISearchCountsRepository SearchCountsRepository { get; }
         ISearchCountofCompaniesRepository SearchCountofCompaniesRepository { get; }
+        IProjectRepository ProjectRepository { get; }
+        ITasksRepository TasksRepository { get; }
+        ITaskUsersRepository TaskUsersRepository { get; }
 
         Task SaveChanges();
     }

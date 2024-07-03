@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PiCTS.Repositories.EntityFrameworkCore;
 
 namespace PiCTS.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240702105522_InitialCreateForTasks")]
+    partial class InitialCreateForTasks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -483,9 +485,6 @@ namespace PiCTS.WebAPI.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -507,15 +506,10 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Statuses")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
 
                     b.ToTable("Projects");
                 });
@@ -586,21 +580,6 @@ namespace PiCTS.WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SearchCounts");
-                });
-
-            modelBuilder.Entity("PiCTS.Entities.Models.TaskUsers", b =>
-                {
-                    b.Property<int>("TaskId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("TaskId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("TaskUsers");
                 });
 
             modelBuilder.Entity("PiCTS.Entities.Models.Tasks", b =>
@@ -701,6 +680,9 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
                     b.Property<string>("RefreshToken")
                         .HasColumnType("nvarchar(max)");
 
@@ -709,6 +691,9 @@ namespace PiCTS.WebAPI.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TasksId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -729,6 +714,10 @@ namespace PiCTS.WebAPI.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("TasksId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -856,17 +845,6 @@ namespace PiCTS.WebAPI.Migrations
                     b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("PiCTS.Entities.Models.Project", b =>
-                {
-                    b.HasOne("PiCTS.Entities.Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
             modelBuilder.Entity("PiCTS.Entities.Models.SearchCountofCompanies", b =>
                 {
                     b.HasOne("PiCTS.Entities.Models.Company", "Company")
@@ -878,25 +856,6 @@ namespace PiCTS.WebAPI.Migrations
                     b.Navigation("Company");
                 });
 
-            modelBuilder.Entity("PiCTS.Entities.Models.TaskUsers", b =>
-                {
-                    b.HasOne("PiCTS.Entities.Models.Tasks", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PiCTS.Entities.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Task");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("PiCTS.Entities.Models.Tasks", b =>
                 {
                     b.HasOne("PiCTS.Entities.Models.Project", null)
@@ -904,6 +863,17 @@ namespace PiCTS.WebAPI.Migrations
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PiCTS.Entities.Models.User", b =>
+                {
+                    b.HasOne("PiCTS.Entities.Models.Project", null)
+                        .WithMany("Responsible")
+                        .HasForeignKey("ProjectId");
+
+                    b.HasOne("PiCTS.Entities.Models.Tasks", null)
+                        .WithMany("Responsible")
+                        .HasForeignKey("TasksId");
                 });
 
             modelBuilder.Entity("PiCTS.Entities.Models.UserBranches", b =>
@@ -942,7 +912,14 @@ namespace PiCTS.WebAPI.Migrations
 
             modelBuilder.Entity("PiCTS.Entities.Models.Project", b =>
                 {
+                    b.Navigation("Responsible");
+
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("PiCTS.Entities.Models.Tasks", b =>
+                {
+                    b.Navigation("Responsible");
                 });
 #pragma warning restore 612, 618
         }

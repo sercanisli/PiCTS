@@ -24,6 +24,9 @@ namespace PiCTS.Services.Contract
         IDashboardService DashboardService { get; }
         ISearchCountsService SearchCountsService { get; }
         ISearchCountofCompaniesService SearchCountofCompaniesService { get; }
+        IProjectService ProjectService { get; }
+        ITaskService TaskService { get; }
+        ITaskUsersService TaskUsersService { get; }
 
         IAuthenticationService AuthenticationService { get; }
     }

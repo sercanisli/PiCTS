@@ -24,7 +24,9 @@ namespace PiCTS.Repositories.EntityFrameworkCore
         public DbSet<SearchCountofCompanies> SearchCountofCompanies { get; set; }
         public DbSet<SearchCounts> SearchCounts { get; set; }
         public DbSet<UserBranches> UserBranches { get; set; }
-
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<TaskUsers> TaskUsers { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
