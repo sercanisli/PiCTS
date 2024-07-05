@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PiCTS.Repositories.EntityFrameworkCore;
 
 namespace PiCTS.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240704113421_RefactorForTask2")]
+    partial class RefactorForTask2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -623,26 +625,23 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("End")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Progress")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Start")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Statuses")
                         .HasColumnType("int");
+
+                    b.Property<string>("TaskName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");

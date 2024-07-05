@@ -15,6 +15,7 @@ namespace PiCTS.Services.Contract
     public interface IUserService
     {
         Task<IEnumerable<UserResponseDTO>> GetAllUsersAsync();
+        Task<IEnumerable<UserLimitedResponseDTO>> GetAllLimitedUsersAsync();
         Task<UserResponseDTO> GetOneUserByUserNameAsync(UserNameDTO userNameDTO);
         Task<UserSeettingsResponseDTO> GetOneUserByNameForSettingsAsync(UserNameDTO userNameDTO);
         Task<User> GetOneUserByIdAsync(Guid id);

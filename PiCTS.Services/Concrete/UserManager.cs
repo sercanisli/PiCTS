@@ -59,6 +59,17 @@ namespace PiCTS.Services.Concrete
             await _manager.SaveChanges();
         }
 
+        public async Task<IEnumerable<UserLimitedResponseDTO>> GetAllLimitedUsersAsync()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            foreach (var user in users)
+            {
+                user.IsDeleted = !user.IsDeleted;
+            }
+            var returnedUsers = _mapper.Map<IEnumerable<UserLimitedResponseDTO>>(users);
+            return returnedUsers;
+        }
+
         public async Task<IEnumerable<UserResponseDTO>> GetAllUsersAsync()
         {
             var users = await _userManager.Users.ToListAsync();

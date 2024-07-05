@@ -15,13 +15,17 @@ namespace PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs
         public DateTime StartDate { get; init; }
         public DateTime EndDate { get; init; }
         public string Description { get; init; }
+        public Status Statuses { get; init; }
+
+        public List<int> Dependencies { get; init; }
+
 
         public enum Status
         {
-            UnAssigned,
-            Assigned,
-            On,
-            Done
+            UnAssigned = 0,
+            Assigned = 1,
+            On = 2,
+            Done = 3
         }
     }
 }

@@ -27,6 +27,13 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
+        [HttpGet("GetAllTasksByProjectIdAsync/{id:int}")]
+        public async Task<IActionResult> GetAllTasksByProjectIdAsync([FromRoute(Name ="id")]int id)
+        {
+            var entities = await _manager.TaskService.GetAllTasksByProjectIdAsync(id, false);
+            return Ok(entities);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneTaskByIdAsync([FromRoute(Name = "id")]int id)
         {

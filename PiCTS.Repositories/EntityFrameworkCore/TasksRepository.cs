@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PiCTS.Entities.DataTransferObjects.TasksDTOs.ResponseDTOs;
 using PiCTS.Entities.Models;
 using PiCTS.Repositories.Contract;
 using System;
@@ -23,6 +24,38 @@ namespace PiCTS.Repositories.EntityFrameworkCore
             await FindAll(trackChanges)
                 .Where(t => t.IsDeleted != true)
                 .ToListAsync();
+
+        public async Task<IEnumerable<Tasks>> GetAllTasksByProjectIdAsync(int projectId, bool trackChanges) =>
+            await FindAll(trackChanges)
+                .Where(t => t.ProjectId == projectId && t.IsDeleted != true)
+                .ToListAsync();
+
+        /* public async Task<IEnumerable<TasksResponseDTO>> GetAllTasksAsync(bool trackChanges)
+        {
+            var list = await FindAll(trackChanges)
+                .Where(t => t.IsDeleted != true)
+                .ToListAsync();
+
+            List<TasksResponseDTO> list2 = new List<TasksResponseDTO>();
+            foreach(var item in list)
+            {
+                TasksResponseDTO item2 = new TasksResponseDTO
+                {
+                    Id = item.Id,
+                    ProjectId = item.ProjectId,
+                    Name=item.Name,
+                    Start=item.Start.ToString("yyyy-MM-dd"),
+                    End=item.End.ToString("yyyy-MM-dd"),
+                    Description = item.Description,
+                    Progress = item.Progress,
+                    Statuses = (TasksResponseDTO.Status)item.Statuses,
+                    Dependencies = item.Dependencies
+                };
+                list2.Add(item2);
+            }
+            return list2;
+
+        } */
 
         public async Task<Tasks> GetOneTaskByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(t => t.Id == id && t.IsDeleted != true, trackChanges)

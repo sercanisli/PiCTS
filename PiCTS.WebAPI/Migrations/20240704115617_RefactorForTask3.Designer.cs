@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PiCTS.Repositories.EntityFrameworkCore;
 
 namespace PiCTS.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240704115617_RefactorForTask3")]
+    partial class RefactorForTask3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -632,8 +634,8 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Progress")
-                        .HasColumnType("int");
+                    b.Property<double>("Progress")
+                        .HasColumnType("float");
 
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");

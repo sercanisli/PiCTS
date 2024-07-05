@@ -59,6 +59,12 @@ namespace PiCTS.Services.Concrete
             return _mapper.Map<IEnumerable<TasksResponseDTO>>(tasks);
         }
 
+        public async Task<IEnumerable<TasksResponseDTO>> GetAllTasksByProjectIdAsync(int projectId, bool trackChanges)
+        {
+            var tasks = await _repositoryManager.TasksRepository.GetAllTasksByProjectIdAsync(projectId, trackChanges);
+            return _mapper.Map<IEnumerable<TasksResponseDTO>>(tasks);
+        }
+
         public async Task<TasksResponseDTO> GetOneTaskByIdAsync(int id, bool trackChanges)
         {
             var task = await _repositoryManager.TasksRepository.GetOneTaskByIdAsync(id, trackChanges);

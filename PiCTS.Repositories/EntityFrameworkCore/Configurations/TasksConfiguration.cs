@@ -14,6 +14,13 @@ namespace PiCTS.Repositories.EntityFrameworkCore.Configurations
         public void Configure(EntityTypeBuilder<Tasks> builder)
         {
             builder.ToTable("Tasks").HasKey(t => t.Id);
+
+            builder.Property(s => s.Dependencies)
+                .HasConversion(
+                v => string.Join(',', v),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+            )
+            .HasColumnName("Dependencies");
         }
     }
 }

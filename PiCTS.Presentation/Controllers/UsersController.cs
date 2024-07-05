@@ -35,6 +35,13 @@ namespace PiCTS.Presentation.Controllers
             return Ok(users);
         }
 
+        [HttpGet("GetAllLimitedUsersAsync")]
+        public async Task<IActionResult> GetAllLimitedUsersAsync()
+        {
+            var users = await _manager.UserService.GetAllLimitedUsersAsync();
+            return Ok(users);
+        }
+
         [Authorize(Roles = "Kullanicilari Gorme")]
         [HttpPost("GetOneUserByUserNameAsync")]
         public async Task<IActionResult> GetOneUserByUserNameAsync([FromBody]UserNameDTO userNameDTO)

@@ -19,6 +19,7 @@ namespace PiCTS.Entities.Models
         public ICollection<Tasks> Tasks { get; set; }
         public Company Company { get; set; }
 
+
         public enum Status
         {
             On = 0,

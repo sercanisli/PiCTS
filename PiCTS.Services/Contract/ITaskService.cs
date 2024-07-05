@@ -11,6 +11,7 @@ namespace PiCTS.Services.Contract
     public interface ITaskService
     {
         Task<IEnumerable<TasksResponseDTO>> GetAllTasksAsync(bool trackChanges);
+        Task<IEnumerable<TasksResponseDTO>> GetAllTasksByProjectIdAsync(int projectId, bool trackChanges);
         Task<TasksResponseDTO> GetOneTaskByIdAsync(int id, bool trackChanges);
         Task<TasksResponseDTO> CreateTaskAsync(TasksRegistrationDTO tasksRegistrationDTO);
         Task UpdateTaskAsync(int id, TasksUpdateDTO tasksUpdateDTO, bool trackChanges);

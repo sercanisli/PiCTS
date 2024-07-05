@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PiCTS.Repositories.EntityFrameworkCore;
 
 namespace PiCTS.WebAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240704112032_RefactorForTask")]
+    partial class RefactorForTask
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -616,32 +618,28 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Dependencies")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Dependencies");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("End")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Progress")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Start")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Statuses")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TaskName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TasksId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
@@ -650,6 +648,8 @@ namespace PiCTS.WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ProjectId");
+
+                    b.HasIndex("TasksId");
 
                     b.ToTable("Tasks");
                 });
@@ -720,6 +720,9 @@ namespace PiCTS.WebAPI.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TasksId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -739,6 +742,8 @@ namespace PiCTS.WebAPI.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("TasksId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -914,6 +919,17 @@ namespace PiCTS.WebAPI.Migrations
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PiCTS.Entities.Models.Tasks", null)
+                        .WithMany("Dependencies")
+                        .HasForeignKey("TasksId");
+                });
+
+            modelBuilder.Entity("PiCTS.Entities.Models.User", b =>
+                {
+                    b.HasOne("PiCTS.Entities.Models.Tasks", null)
+                        .WithMany("Responsible")
+                        .HasForeignKey("TasksId");
                 });
 
             modelBuilder.Entity("PiCTS.Entities.Models.UserBranches", b =>
@@ -953,6 +969,13 @@ namespace PiCTS.WebAPI.Migrations
             modelBuilder.Entity("PiCTS.Entities.Models.Project", b =>
                 {
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("PiCTS.Entities.Models.Tasks", b =>
+                {
+                    b.Navigation("Dependencies");
+
+                    b.Navigation("Responsible");
                 });
 #pragma warning restore 612, 618
         }
