@@ -19,7 +19,7 @@ namespace PiCTS.Presentation.Controllers
         {
             _manager = manager;
         }
-
+            
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetAllTaskUsersByTaskIdAsync([FromRoute] int id)
         {

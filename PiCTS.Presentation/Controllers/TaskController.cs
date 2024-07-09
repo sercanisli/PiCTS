@@ -44,8 +44,8 @@ namespace PiCTS.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTaskAsync([FromBody]TasksRegistrationDTO tasksRegistrationDTO)
         {
-            await _manager.TaskService.CreateTaskAsync(tasksRegistrationDTO);
-            return StatusCode(201, tasksRegistrationDTO);
+            var entitiy = await _manager.TaskService.CreateTaskAsync(tasksRegistrationDTO);
+            return StatusCode(201, entitiy);
         }
 
         [HttpPut("{id:int}")]
