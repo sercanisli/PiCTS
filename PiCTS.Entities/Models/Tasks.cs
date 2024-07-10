@@ -18,6 +18,7 @@ namespace PiCTS.Entities.Models
         public Status Statuses { get; set; }
 
         public List<string> Dependencies { get; set; }
+        public List<string> Users { get; set; }
 
 
         public enum Status

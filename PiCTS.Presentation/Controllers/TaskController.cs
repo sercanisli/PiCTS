@@ -56,9 +56,9 @@ namespace PiCTS.Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteTaskAsync([FromRoute(Name = "id")]int id)
+        public async Task<IActionResult> DeleteTaskAsync([FromRoute(Name = "id")]int id, [FromBody]int projectId)
         {
-            await _manager.TaskService.DeleteTaskAsync(id, false);
+            await _manager.TaskService.DeleteTaskAsync(id, projectId, false);
             return NoContent();
         }
     }

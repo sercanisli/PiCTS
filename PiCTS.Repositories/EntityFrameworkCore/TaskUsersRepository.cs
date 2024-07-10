@@ -24,8 +24,8 @@ namespace PiCTS.Repositories.EntityFrameworkCore
 
         public async Task<IEnumerable<TaskUsers>> GetAllTaskUsersByTaskIdAsync(int taskId, bool trackChanges) =>
             await FindAll(trackChanges)
-                .Where(tu => tu.TaskId == taskId)
                 .Include(tu => tu.User)
+                .Where(tu=> tu.TaskId == taskId)
                 .ToListAsync();
 
         public void UpdateTaskUser(TaskUsers taskUsers) => Update(taskUsers);

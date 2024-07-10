@@ -18,6 +18,8 @@ namespace PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs
         public Status Statuses { get; init; }
 
         public List<int> Dependencies { get; init; }
+        public List<string> Users { get; init; }
+
 
 
         public enum Status

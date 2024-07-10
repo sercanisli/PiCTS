@@ -798,3 +798,75 @@
 2024-07-09 09:55:09.3289 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
 2024-07-09 09:55:09.3465 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
 2024-07-09 09:55:09.3626 Info Configuration initialized.
+2024-07-09 13:48:49.2147 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-09 13:48:49.2384 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-09 13:48:49.2547 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-09 13:48:49.2670 Info Configuration initialized.
+2024-07-09 13:56:55.3758 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-09 13:56:55.4043 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-09 13:56:55.4245 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-09 13:56:55.4369 Info Configuration initialized.
+2024-07-09 14:21:05.4327 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-09 14:21:05.4595 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-09 14:21:05.4739 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-09 14:21:05.4898 Info Configuration initialized.
+2024-07-09 14:55:07.0104 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-09 14:55:07.0340 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-09 14:55:07.0557 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-09 14:55:07.0696 Info Configuration initialized.
+2024-07-10 08:28:23.9106 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 08:28:23.9470 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 08:28:23.9649 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 08:28:23.9880 Info Configuration initialized.
+2024-07-10 13:45:08.0908 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 13:45:08.1197 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 13:45:08.1487 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 13:45:08.1750 Info Configuration initialized.
+2024-07-10 14:03:08.1419 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:03:08.1880 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:03:08.2049 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:03:08.2211 Info Configuration initialized.
+2024-07-10 14:04:41.9830 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:04:42.0180 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:04:42.0466 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:04:42.0639 Info Configuration initialized.
+2024-07-10 14:10:25.1613 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:10:25.2200 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:10:25.2477 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:10:25.2851 Info Configuration initialized.
+2024-07-10 14:22:06.3137 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:22:06.3373 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:22:06.3506 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:22:06.3506 Info Configuration initialized.
+2024-07-10 14:30:40.5094 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:30:40.5383 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:30:40.5627 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:30:40.5755 Info Configuration initialized.
+2024-07-10 14:48:54.2239 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:48:54.2539 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:48:54.2800 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:48:54.2949 Info Configuration initialized.
+2024-07-10 14:53:33.3354 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 14:53:33.3631 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 14:53:33.4159 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 14:53:33.4327 Info Configuration initialized.
+2024-07-10 15:37:39.8959 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 15:37:39.9240 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 15:37:39.9523 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 15:37:39.9698 Info Configuration initialized.
+2024-07-10 15:41:41.8473 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 15:41:41.8700 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 15:41:41.8886 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 15:41:41.9010 Info Configuration initialized.
+2024-07-10 15:42:46.9550 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 15:42:46.9906 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 15:42:47.0054 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 15:42:47.0271 Info Configuration initialized.
+2024-07-10 15:48:44.5668 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 15:48:44.5947 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 15:48:44.6228 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 15:48:44.6410 Info Configuration initialized.
+2024-07-10 15:52:28.7717 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-07-10 15:52:28.8002 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-07-10 15:52:28.8177 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\Desktop\Publish olacak  v2\PiCTS\PiCTS.WebAPI\bin\Debug\net5.0\NLog.config
+2024-07-10 15:52:28.8489 Info Configuration initialized.

@@ -36,12 +36,24 @@ namespace PiCTS.Services.Concrete
             return _mapper.Map<TasksResponseDTO>(task);
         }
 
-        public async Task DeleteTaskAsync(int id, bool trackChanges)
+        public async Task DeleteTaskAsync(int id, int projectId, bool trackChanges)
         {
+
+            var tasks = await _repositoryManager.TasksRepository.GetAllTasksByProjectIdAsync(projectId, trackChanges);
             var task = await _repositoryManager.TasksRepository.GetOneTaskByIdAsync(id, trackChanges);
-            if(task == null)
+
+            if (task == null)
             {
                 throw new TaskNotFoundException(id);
+            }
+
+            foreach (var t in tasks)
+            {
+                if (t.Dependencies.Contains(task.Id.ToString()))
+                {
+                    t.Dependencies.Remove(task.Id.ToString());
+                    _repositoryManager.TasksRepository.UpdateTask(t);
+                }
             }
 
             task.CreatedDate = task.CreatedDate;

@@ -15,12 +15,19 @@ namespace PiCTS.Repositories.EntityFrameworkCore.Configurations
         {
             builder.ToTable("Tasks").HasKey(t => t.Id);
 
-            builder.Property(s => s.Dependencies)
+            builder.Property(t => t.Dependencies)
                 .HasConversion(
                 v => string.Join(',', v),
                 v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
             )
             .HasColumnName("Dependencies");
+
+            builder.Property(t => t.Users)
+                .HasConversion(
+                v => string.Join(',', v),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+            )
+            .HasColumnName("Users");
         }
     }
 }
