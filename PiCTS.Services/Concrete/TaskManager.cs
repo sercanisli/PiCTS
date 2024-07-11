@@ -30,6 +30,9 @@ namespace PiCTS.Services.Concrete
 
             IsTaskNull(task);
 
+            task.Start = task.Start.AddDays(1);
+            task.End = task.End.AddDays(1);
+
             task.CreatedDate = DateTime.Now;
             _repositoryManager.TasksRepository.CreateTask(task);
             await _repositoryManager.SaveChanges();
@@ -98,6 +101,9 @@ namespace PiCTS.Services.Concrete
             var task = _mapper.Map<Tasks>(tasksUpdateDTO);
 
             IsTaskNull(task);
+
+            task.Start = task.Start.AddDays(1);
+            task.End = task.End.AddDays(1);
 
             task.CreatedDate = entity.CreatedDate;
             task.DeletedDate = entity.DeletedDate;

@@ -21,7 +21,7 @@ namespace PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs
         public List<string> Dependencies { get; init; }
         public List<string> Users { get; init; }
 
-
+        
 
         public enum Status
         {
