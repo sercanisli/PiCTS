@@ -11,8 +11,8 @@ namespace PiCTS.Entities.Models
         public int Id { get; set; }
         public int ProjectId { get; set; }
         public string Name { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public DateTime? Start { get; set; }
+        public DateTime? End { get; set; }
         public string Description { get; set; }
         public int Progress { get; set; }
         public Status Statuses { get; set; }
