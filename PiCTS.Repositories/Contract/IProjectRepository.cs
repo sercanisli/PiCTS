@@ -10,6 +10,7 @@ namespace PiCTS.Repositories.Contract
     public interface IProjectRepository : IRepositoryBase<Project>
     {
         Task<IEnumerable<Project>> GetAllProjectsAsync(bool trackChanges);
+        Task<IEnumerable<Project>> GetAllLimitedProjectAsync(bool trackChanges);
         Task<Project> GetOneProjectByIdAsync(int id, bool trackChanges);
         void CreateOneProject(Project project);
         void UpdateOneProject(Project project);

@@ -28,6 +28,12 @@ namespace PiCTS.Repositories.EntityFrameworkCore
                 .Where(tu=> tu.TaskId == taskId)
                 .ToListAsync();
 
+        public async Task<IEnumerable<TaskUsers>> GetAllUserTasksByUserIdAsync(string userId, bool trackChanges) =>
+            await FindAll(trackChanges)
+                .Include(tu => tu.Task)
+                .Where(tu => tu.UserId == userId)
+                .ToListAsync();
+
         public void UpdateTaskUser(TaskUsers taskUsers) => Update(taskUsers);
     }
 }

@@ -15,18 +15,14 @@ namespace PiCTS.Entities.Models
         public DateTime? End { get; set; }
         public string Description { get; set; }
         public int Progress { get; set; }
-        public Status Statuses { get; set; }
+        public bool IsCompleted { get; set; }
 
         public List<string> Dependencies { get; set; }
         public List<string> Users { get; set; }
 
-
-        public enum Status
+        public Tasks()
         {
-            UnAssigned = 0,
-            Assigned = 1,
-            On = 2,
-            Done = 3
+            IsCompleted = false;
         }
     }
 }

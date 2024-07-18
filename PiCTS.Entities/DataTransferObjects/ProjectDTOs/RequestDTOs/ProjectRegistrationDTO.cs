@@ -9,23 +9,12 @@ namespace PiCTS.Entities.DataTransferObjects.ProjectDTOs.RequestDTOs
 {
     public record ProjectRegistrationDTO
     {
-        public int Id { get; init; }
         public string ProjectName { get; init; }
         public int CompanyId { get; set; }
         public DateTime StartDate { get; init; }
         public DateTime EndDate { get; init; }
         public string Description { get; init; }
 
-        public Status Statuses { get; set; }
-
         public Company Company { get; set; }
-
-
-
-        public enum Status
-        {
-            On = 0,
-            Done = 1
-        }
     }
 }

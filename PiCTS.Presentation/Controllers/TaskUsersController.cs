@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PiCTS.Entities.DataTransferObjects.TaskUsersDTOs.RequestDTOs;
 using PiCTS.Entities.Models;
 using PiCTS.Services.Contract;
 using System;
@@ -19,7 +20,7 @@ namespace PiCTS.Presentation.Controllers
         {
             _manager = manager;
         }
-            
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetAllTaskUsersByTaskIdAsync([FromRoute] int id)
         {
@@ -27,10 +28,24 @@ namespace PiCTS.Presentation.Controllers
             return Ok(taskUsers);
         }
 
+        [HttpPost("GetAllUserTasksByUserIdAsync")]
+        public async Task<IActionResult> GetAllUserTasksByUserIdAsync([FromBody] UserIdDTO userIdDTO)
+        {
+            var userTasks = await _manager.TaskUsersService.GetAllUserTasksByUserIdAsync(userIdDTO.UserId, false);
+            return Ok(userTasks);
+        }
+
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> UpdateTaskUsersAsync([FromRoute(Name = "id")]int id, [FromBody]List<TaskUsers> taskUsers)
+        public async Task<IActionResult> UpdateTaskUsersAsync([FromRoute(Name = "id")] int id, [FromBody] List<TaskUsers> taskUsers)
         {
             await _manager.TaskUsersService.UpdateOneTaskUsersAsync(id, taskUsers, false);
+            return NoContent();
+        }
+
+        [HttpPut("UpdateOneTaskSawAsync")]
+        public async Task<IActionResult> UpdateOneTaskSawAsync([FromBody]UserIdDTO userIdDTO)
+        {
+            await _manager.TaskUsersService.UpdateOneTaskSawAsync(userIdDTO.UserId, false);
             return NoContent();
         }
     }

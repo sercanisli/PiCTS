@@ -15,6 +15,8 @@ namespace PiCTS.Services.Contract
         Task<TasksResponseDTO> GetOneTaskByIdAsync(int id, bool trackChanges);
         Task<TasksResponseDTO> CreateTaskAsync(TasksRegistrationDTO tasksRegistrationDTO);
         Task UpdateTaskAsync(int id, TasksUpdateDTO tasksUpdateDTO, bool trackChanges);
+        Task UpdateTaskStatusAsync(TaskStatusUpdateDTO taskStatusUpdateDTO);
+        Task UpdateTaskProgressAsync(TaskProgressUpdateDTO taskProgressUpdateDTO);
         Task DeleteTaskAsync(int id, int projectId, bool trackChanges);
     }
 }

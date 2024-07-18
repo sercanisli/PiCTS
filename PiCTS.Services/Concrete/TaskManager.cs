@@ -113,6 +113,54 @@ namespace PiCTS.Services.Concrete
             await _repositoryManager.SaveChanges();
         }
 
+        public async Task UpdateTaskProgressAsync(TaskProgressUpdateDTO taskProgressUpdateDTO)
+        {
+            var task = await _repositoryManager.TasksRepository.GetOneTaskByIdAsync(taskProgressUpdateDTO.Id, false);
+            if(task == null)
+            {
+                throw new TaskNotFoundException(taskProgressUpdateDTO.Id);
+            }
+
+            if(taskProgressUpdateDTO == null)
+            {
+                throw new ArgumentNullException(nameof(taskProgressUpdateDTO));
+            }
+
+            task.Progress = taskProgressUpdateDTO.Progress;
+
+            _repositoryManager.TasksRepository.UpdateTask(task);
+            await _repositoryManager.SaveChanges();
+        }
+
+        public async Task UpdateTaskStatusAsync(TaskStatusUpdateDTO taskStatusUpdateDTO)
+        {
+            var task = await _repositoryManager.TasksRepository.GetOneTaskByIdAsync(taskStatusUpdateDTO.Id, false);
+            if(task == null)
+            {
+                throw new TaskNotFoundException(taskStatusUpdateDTO.Id);
+            }
+
+            if(taskStatusUpdateDTO == null)
+            {
+                throw new ArgumentNullException(nameof(taskStatusUpdateDTO));
+            }
+
+            task.IsCompleted = taskStatusUpdateDTO.IsCompleted;
+
+            if (task.IsCompleted == true)
+            {
+                task.Progress = 100;
+            } 
+            else
+            {
+                task.Progress = 0;
+            }
+
+            task.UpdatedDate = DateTime.Now;
+            _repositoryManager.TasksRepository.UpdateTask(task);
+            await _repositoryManager.SaveChanges();
+        }
+
         private void IsTaskNull(Tasks task)
         {
             if (task == null)

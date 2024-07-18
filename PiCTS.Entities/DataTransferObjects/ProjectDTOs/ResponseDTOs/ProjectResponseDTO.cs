@@ -16,16 +16,6 @@ namespace PiCTS.Entities.DataTransferObjects.ProjectDTOs.ResponseDTOs
         public DateTime? StartDate { get; init; }
         public DateTime? EndDate { get; init; }
         public string Description { get; init; }
-        public Status Statuses { get; set; }
-        public string StatusName => Statuses.ToString();
-
-
-
-
-        public enum Status
-        {
-            On,
-            Done
-        }
+        public bool IsCompleted { get; init; }
     }
 }

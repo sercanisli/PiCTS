@@ -11,6 +11,7 @@ namespace PiCTS.Services.Contract
     public interface IProjectService
     {
         Task<IEnumerable<ProjectResponseDTO>> GetAllProjectsAsync(bool trackChanges);
+        Task<IEnumerable<ProjectLimitedResponseDTO>> GetAllLimitedProjectAsync(bool trackChanges);
         Task<ProjectResponseDTO> GetOneProjectByIdAsync(int id, bool trackChanges);
         Task<ProjectResponseDTO> CreateOneProjectAsync(ProjectRegistrationDTO projectRegistrationDTO);
         Task UpdateOneProjectAsync(int id, ProjectUpdateDTO projectUpdateDTO, bool trackChanges);

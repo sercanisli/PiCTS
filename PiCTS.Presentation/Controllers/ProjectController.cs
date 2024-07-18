@@ -27,6 +27,13 @@ namespace PiCTS.Presentation.Controllers
             return Ok(entities);
         }
 
+        [HttpGet("GetAllLimitedProjectAsync")]
+        public async Task<IActionResult> GetAllLimitedProjectAsync()
+        {
+            var entities = await _manager.ProjectService.GetAllLimitedProjectAsync(false);
+            return Ok(entities);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneProjectByIdAsync([FromRoute(Name = "id")]int id)
         {

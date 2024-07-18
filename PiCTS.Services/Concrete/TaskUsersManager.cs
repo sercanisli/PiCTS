@@ -57,6 +57,29 @@ namespace PiCTS.Services.Concrete
             return _mapper.Map<IEnumerable<TaskUsersResponseDTO>>(taskUsers);
         }
 
+        public async Task<IEnumerable<UserTasksResponseDTO>> GetAllUserTasksByUserIdAsync(string userId, bool trackChanges)
+        {
+            var userTasks = await _manager.TaskUsersRepository.GetAllUserTasksByUserIdAsync(userId, trackChanges);
+            return _mapper.Map<IEnumerable<UserTasksResponseDTO>>(userTasks);
+        }
+
+        public async Task UpdateOneTaskSawAsync(string userId, bool trackChanges)
+        {
+            var userTasks = await _manager.TaskUsersRepository.GetAllUserTasksByUserIdAsync(userId, false);
+            if (userTasks == null)
+            {
+                throw new UserTasksNotFoundException(userId);
+            }
+
+
+            foreach (var task in userTasks)
+            {
+                task.TaskSaw = true;
+                _manager.TaskUsersRepository.UpdateTaskUser(task);
+            }
+            await _manager.SaveChanges();
+        }
+
         public async Task UpdateOneTaskUsersAsync(int taskId, List<TaskUsers> taskUsers, bool trackChanges)
         {
             var entities = await _manager.TaskUsersRepository.GetAllTaskUsersByTaskIdAsync(taskId, false);

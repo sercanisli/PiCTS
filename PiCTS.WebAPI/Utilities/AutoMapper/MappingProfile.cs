@@ -112,12 +112,14 @@ namespace PiCTS.WebAPI.Utilities.AutoMapper
             CreateMap<Project, ProjectRegistrationDTO>().ReverseMap();
             CreateMap<Project, ProjectUpdateDTO>().ReverseMap();
             CreateMap<Project, ProjectResponseDTO>().ReverseMap();
+            CreateMap<Project, ProjectLimitedResponseDTO>().ReverseMap();
 
             CreateMap<Tasks, TasksRegistrationDTO>().ReverseMap();
             CreateMap<Tasks, TasksUpdateDTO>().ReverseMap();
             CreateMap<Tasks, TasksResponseDTO>().ReverseMap();
 
             CreateMap<TaskUsers, TaskUsersResponseDTO>().ReverseMap();
+            CreateMap<TaskUsers, UserTasksResponseDTO>().ReverseMap();
         }
     }
 }

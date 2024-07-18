@@ -53,6 +53,12 @@ namespace PiCTS.Services.Concrete
             await _repositoryManager.SaveChanges();
         }
 
+        public async Task<IEnumerable<ProjectLimitedResponseDTO>> GetAllLimitedProjectAsync(bool trackChanges)
+        {
+            var limitedProjects = await _repositoryManager.ProjectRepository.GetAllLimitedProjectAsync(trackChanges);
+            return _mapper.Map<IEnumerable<ProjectLimitedResponseDTO>>(limitedProjects);
+        }
+
         public async Task<IEnumerable<ProjectResponseDTO>> GetAllProjectsAsync(bool trackChanges)
         {
             var projects = await _repositoryManager.ProjectRepository.GetAllProjectsAsync(trackChanges);

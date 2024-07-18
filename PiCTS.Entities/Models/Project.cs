@@ -14,16 +14,14 @@ namespace PiCTS.Entities.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Description { get; set; }
-        public Status Statuses { get; set; }
+        public bool IsCompleted { get; set; }
 
         public ICollection<Tasks> Tasks { get; set; }
         public Company Company { get; set; }
 
-
-        public enum Status
+        public Project()
         {
-            On = 0,
-            Done = 1
+            IsCompleted = false;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace PiCTS.Repositories.Contract
     {
         Task<IEnumerable<TaskUsers>> GetAllTaskUsersAsync(bool trackChanges);
         Task<IEnumerable<TaskUsers>> GetAllTaskUsersByTaskIdAsync(int taskId, bool trackChanges);
+        Task<IEnumerable<TaskUsers>> GetAllUserTasksByUserIdAsync(string userId, bool trackChanges);
         void CreateTaskUser(TaskUsers taskUsers);
         void UpdateTaskUser(TaskUsers taskUsers);
         void DeleteTaskUser(TaskUsers taskUsers);

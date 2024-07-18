@@ -55,6 +55,20 @@ namespace PiCTS.Presentation.Controllers
             return NoContent();
         }
 
+        [HttpPut("UpdateTaskStatusAsync")]
+        public async Task<IActionResult> UpdateTaskStatusAsync([FromBody]TaskStatusUpdateDTO taskStatusUpdateDTO)
+        {
+            await _manager.TaskService.UpdateTaskStatusAsync(taskStatusUpdateDTO);
+            return NoContent();
+        }
+
+        [HttpPut("UpdateTaskProgressAsync")]
+        public async Task<IActionResult> UpdateTaskProgressAsync([FromBody]TaskProgressUpdateDTO taskProgressUpdateDTO)
+        {
+            await _manager.TaskService.UpdateTaskProgressAsync(taskProgressUpdateDTO);
+            return NoContent();
+        }
+
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteTaskAsync([FromRoute(Name = "id")]int id, [FromBody]int projectId)
         {

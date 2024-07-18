@@ -19,6 +19,11 @@ namespace PiCTS.Repositories.EntityFrameworkCore
 
         public void DeleteOneProject(Project project) => Delete(project);
 
+        public async Task<IEnumerable<Project>> GetAllLimitedProjectAsync(bool trackChanges) =>
+            await FindAll(trackChanges)
+                .Where(p => p.IsDeleted != true)
+                .ToListAsync();
+
         public async Task<IEnumerable<Project>> GetAllProjectsAsync(bool trackChanges) =>
             await FindAll(trackChanges)
                 .Where(p => p.IsDeleted != true)

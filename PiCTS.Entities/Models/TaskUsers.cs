@@ -10,8 +10,14 @@ namespace PiCTS.Entities.Models
     {
         public int TaskId { get; set; }
         public string UserId { get; set; }
+        public bool TaskSaw { get; set; }
 
         public Tasks Task { get; set; }
         public User User { get; set; }
+
+        public TaskUsers()
+        {
+            TaskSaw = false;
+        }
     }
 }

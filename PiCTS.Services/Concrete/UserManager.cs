@@ -103,14 +103,13 @@ namespace PiCTS.Services.Concrete
 
         public async Task<UserResponseDTO> GetOneUserByUserNameAsync(UserNameDTO userNameDTO)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == userNameDTO.UserName);
+            var user = await _userManager.Users.SingleOrDefaultAsync(u => u.UserName == userNameDTO.UserName);
 
             if(user == null)
             {
                 throw new UserNotFounByNameException(user.UserName);
             }
-            var returnedUser = _mapper.Map<UserResponseDTO>(user);
-            return returnedUser;
+            return _mapper.Map<UserResponseDTO>(user);
         }
 
         public async Task UpdateOneUserAsync(Guid id, UserForUpdateDTO userForUpdateDTO)
