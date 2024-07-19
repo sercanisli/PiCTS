@@ -15,6 +15,6 @@ namespace PiCTS.Entities.DataTransferObjects.ProjectDTOs.RequestDTOs
         public DateTime EndDate { get; init; }
         public string Description { get; init; }
 
-        public Company Company { get; set; }
+        public Company Company { get; init; }
     }
 }

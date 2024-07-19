@@ -9,6 +9,7 @@ namespace PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs
 {
     public record TasksUpdateDTO
     {
+        public int Id { get; init; }
         public int ProjectId { get; init; }
         public string Name { get; init; }
         public DateTime? Start { get; init; }
@@ -16,7 +17,7 @@ namespace PiCTS.Entities.DataTransferObjects.TasksDTOs.RequestDTOs
         public string Description { get; init; }
         public string Progress { get; init; }
         public bool IsCompleted { get; init; }
-
+        
         public List<string> Dependencies { get; init; }
         public List<string> Users { get; init; }
 

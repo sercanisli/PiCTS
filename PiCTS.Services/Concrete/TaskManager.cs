@@ -100,13 +100,9 @@ namespace PiCTS.Services.Concrete
 
             var task = _mapper.Map<Tasks>(tasksUpdateDTO);
 
-            IsTaskNull(task);
-
             task.Start = task.Start.Value.AddDays(1);
-            task.End = task.End.Value.AddDays(1);
 
-            task.CreatedDate = entity.CreatedDate;
-            task.DeletedDate = entity.DeletedDate;
+            IsTaskNull(task);
             task.UpdatedDate = DateTime.Now;
 
             _repositoryManager.TasksRepository.UpdateTask(task);
